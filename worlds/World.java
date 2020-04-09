@@ -22,12 +22,14 @@ public class World {
 	//Entity
 	private EntityManager entityManager;
 	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
 	public World(Handler handler, String path){
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 650, 400));
-		entityManager.addEntity(new Tree(handler, 100, 100));
-		entityManager.addEntity(new Bush(handler, 100, 200));
-		entityManager.addEntity(new Rock(handler, 200, 300));
+		entityManager.addEntity(new Tree(handler, 400, 600));
 		
 		loadWorld(path);
 		
