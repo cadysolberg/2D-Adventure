@@ -7,7 +7,9 @@ import dev.tilegame.display.Display;
 import dev.tilegame.gfx.Assets;
 import dev.tilegame.gfx.GameCamera;
 import dev.tilegame.input.KeyManager;
+import dev.tilegame.input.MouseManager;
 import dev.tilegame.states.GameState;
+import dev.tilegame.states.MenuState;
 import dev.tilegame.states.State;
 
 public class Game implements Runnable {
@@ -22,11 +24,13 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
-	//State 
-	private State gameState;
+	//State (Change back to private after testing)
+	public State gameState;
+	public State menuState;
 	
 	//Input
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	
 	//Camera
 	private GameCamera gameCamera;
@@ -39,11 +43,17 @@ public class Game implements Runnable {
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
 	}
 	
 	private void init(){
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
 		
 		handler = new Handler(this);
@@ -51,7 +61,8 @@ public class Game implements Runnable {
 		
 		
 		gameState = new GameState(handler);
-		State.setState(gameState);
+		menuState = new MenuState(handler);
+		State.setState(menuState);
 	}
 
 	
@@ -119,8 +130,13 @@ public class Game implements Runnable {
 		
 	}
 	
+	//To Get
 	public KeyManager getKeyManager(){
 		return keyManager;
+	}
+	
+	public MouseManager getMouseManager(){
+		return mouseManager;
 	}
 	
 	public GameCamera getGameCamera(){
