@@ -7,7 +7,7 @@ public class Assets {
 	
 	private static final int width = 32, height = 32;
 	
-	public static BufferedImage player, enemy, grass, dirt, stone, mossStone, brick, mossBrick, stoneBrick, mossStoneBrick, border, rock, bush, tree;
+	public static BufferedImage player, enemy, grass, dirt, stone, mossStone, brick, mossBrick, stoneBrick, mossStoneBrick, border, rock, bush, tree, wood, pebble, leaf;
 	public static BufferedImage[] player_left, player_right, player_up, player_down;
 
 
@@ -46,6 +46,9 @@ public class Assets {
 		bush = sheet.crop((width*2), (height*2), width, height);
 		tree = sheet.crop(0, (height*4), (width*2)-2, (height*2)-2);
 		
+		wood = sheet.crop(64, 128, 20, 20);
+		pebble = sheet.crop(88, 135, 10, 6);		
+		leaf = sheet.crop(106, 131, 13, 13);
 		
 	}
 	
