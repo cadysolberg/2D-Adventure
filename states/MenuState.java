@@ -47,7 +47,8 @@ public class MenuState extends State {
 		g.setFont(font2);
 		g.setColor(Color.darkGray);
 		g.drawString("Controls:", 300, 300);
-		g.drawString("- WASD to move", 300, 400);
+		g.drawString("- WASD to Move", 300, 400);
+		g.drawString("- Arrow Keys to Attack", 300, 500);
 		g.drawString("Click to Start", 300, 600);
 		
 		
