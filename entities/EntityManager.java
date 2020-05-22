@@ -3,6 +3,7 @@ package dev.tilegame.entities;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 import dev.tilegame.Handler;
 import dev.tilegame.entities.creatures.Player;
@@ -34,11 +35,12 @@ public class EntityManager {
 	}
 	
 	public void tick() {
-		for(int i = 0; i < entities.size(); i++) {
-			Entity e = entities.get(i);
+		Iterator<Entity> it = entities.iterator();
+		while(it.hasNext()) {
+			Entity e = it.next();
 			e.tick();
 			if(!e.active) {
-				entities.remove(e);
+				it.remove();
 			}
 		}
 		entities.sort(rendering);
