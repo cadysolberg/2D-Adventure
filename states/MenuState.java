@@ -11,7 +11,7 @@ public class MenuState extends State {
 
 	
 	Font font = new Font ("Times New Roman", Font.BOLD, 96);
-	Font font2 = new Font ("Times New Roman", Font.PLAIN, 48);
+	Font font2 = new Font ("Times New Roman", Font.PLAIN, 36);
 
 	public MenuState(Handler handler) {
 		super(handler);
@@ -47,8 +47,10 @@ public class MenuState extends State {
 		g.setFont(font2);
 		g.setColor(Color.darkGray);
 		g.drawString("Controls:", 300, 300);
-		g.drawString("- WASD to Move", 300, 400);
-		g.drawString("- Arrow Keys to Attack", 300, 500);
+		g.drawString("- WASD to Move", 300, 350);
+		g.drawString("- Arrow Keys to Attack", 300, 400);
+		g.drawString("- E to Open Inventory", 300, 450);
+		g.drawString("- Q to Navigate Inventory", 300, 500);
 		g.drawString("Click to Start", 300, 600);
 		
 		

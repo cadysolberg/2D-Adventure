@@ -51,9 +51,17 @@ public class Item {
 	public void render(Graphics g, int x, int y) {
 		g.drawImage(texture, x, y, ITEMWIDTH, ITEMHEIGHT, null);
 	}
+	
+	public Item createNew(int count) {
+		Item i = new Item(texture, name, id);
+		i.setPickedUp(true);
+		i.setCount(count);
+		return i;
+	}
 	public Item createNew(int x, int y) {
 		Item i = new Item(texture, name, id);
 		i.setPosition(x, y);
+		i.setCount(count);
 		return i;
 	}
 	public void setPosition(int x, int y) {
@@ -66,6 +74,12 @@ public class Item {
 	
 	public boolean isPickedUp() {
 		return pickedUp;
+	}
+	
+	
+
+	public void setPickedUp(boolean pickedUp) {
+		this.pickedUp = pickedUp;
 	}
 
 	public Handler getHandler() {

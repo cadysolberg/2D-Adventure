@@ -1,5 +1,6 @@
 package dev.tilegame.gfx;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
@@ -7,14 +8,21 @@ public class Assets {
 	
 	private static final int width = 32, height = 32;
 	
+	public static Font font28;
+	
 	public static BufferedImage player, enemy, grass, dirt, stone, mossStone, brick, mossBrick, stoneBrick, mossStoneBrick, border, rock, bush, tree, wood, pebble, leaf;
 	public static BufferedImage[] player_left, player_right, player_up, player_down;
+	public static BufferedImage invScreen;
 
 
 
 	//Tiles
 	public static void init(){
+		font28 = FontLoader.loadFont("res/fonts/silkscreen/slkscr.ttf", 28);
+		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/SpriteSheet.png"));
+		
+		invScreen = ImageLoader.loadImage("/textures/invScreen.png");
 		
 		//Player
 		player_left = new BufferedImage[2];
